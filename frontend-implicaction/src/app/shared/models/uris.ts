@@ -24,8 +24,8 @@ export class Uris {
     static readonly GET_ALL_PENDING_USERS = 'users/pending';
     static readonly GROUP_LIST = 'users';
     static readonly GET_USERNAMES_BY_NAME = 'users/usernames';
-    static readonly GET_USER_BY_USERNAME = 'users/by-username'
-    static readonly GET_NB_OF_USERS='users/nbusers'
+    static readonly GET_USER_BY_USERNAME = 'users/by-username';
+    static readonly GET_NB_OF_USERS='users/nbusers';
   };
 
   /**

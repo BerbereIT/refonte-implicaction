@@ -118,7 +118,6 @@ export class UserEditingFormComponent extends SidebarContentComponent implements
         userUpdate =>{
           if(this.isUpdate){
             this.updateFields(userUpdate);
-            console.log("testt ===>> " + JSON.stringify( userUpdate))
           }
         },
         () => {

@@ -169,6 +169,8 @@ public class UserService {
     }
 
     private User updateUserFromDto(UserDto userDto, User user) {
+        user.setLastname(userDto.getLastname());
+        user.setFirstname(userDto.getFirstname());
         user.setEmail(userDto.getEmail());
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setBirthday(userDto.getBirthday());
@@ -181,10 +183,15 @@ public class UserService {
         return user;
     }
 
-   public List<UserDto> getNbOfUsers(){
+    public List<UserDto> getNbOfUsers(){
         List<User> users = userRepository.findAll();
         return users.stream()
                 .map(userAdapter::toDto)
                 .collect(toList());
-   }
+    }
+
+    public void deleteUser(Long userId) {
+        //userRepository.deleteById(userId);
+        System.out.println("testt supprimer " + userId);
+    }
 }

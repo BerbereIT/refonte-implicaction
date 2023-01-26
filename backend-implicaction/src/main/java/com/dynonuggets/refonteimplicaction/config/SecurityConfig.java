@@ -69,7 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] ADMIN_PROTECTEDS = {
             "/api/auth/accountVerification/**",
-            format("%s/**", ADMIN_BASE_URI)
+            format("%s/**", ADMIN_BASE_URI),
+            format("%s/**", USER_BASE_URI)
     };
 
     private static final String[] PREMIUM_PROTECTEDS = {
