@@ -3,7 +3,7 @@ import {Training} from './training';
 import {Type} from '@angular/core';
 import {JobPosting} from './job-posting';
 import {Company} from './company';
-
+import {User} from './user';
 
 /**
  * Inputs partagés en entrée pour un contenu de la sidebar
@@ -13,6 +13,7 @@ export interface SidebarInputs {
   training?: Training;
   job?: JobPosting;
   company?: Company;
+  user?: User;
 }
 
 /**

@@ -18,8 +18,8 @@
       <ng-template #userControls>
         <p>{{ user.purpose }}<br> {{ user.presentation }}</p>
         <div class="boutton">
-          <p-button label="" icon="pi pi-check" (click)="editUser(user)"></p-button>
-          <p-button label="" icon="pi pi-file-edit" styleClass="p-button-success" [style]="{'margin-left': '.5em'}"></p-button>
+          <p-button label="" icon="pi pi-check"></p-button>
+          <p-button (click)="editUser(user)" label="" icon="pi pi-file-edit" styleClass="p-button-success" [style]="{'margin-left': '.5em'}"></p-button>
           <p-button label="" icon="pi pi-times" styleClass="p-button-danger" [style]="{'margin-left': '.5em'}"></p-button>
         </div>
       </ng-template>

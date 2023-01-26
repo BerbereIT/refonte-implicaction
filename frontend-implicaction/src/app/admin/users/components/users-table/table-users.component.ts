@@ -5,6 +5,8 @@ import {finalize, take} from 'rxjs/operators';
 import {Pageable} from '../../../../shared/models/pageable';
 import {Constants} from '../../../../config/constants';
 import {User} from '../../../../shared/models/user';
+import {SidebarService} from "../../../../shared/services/sidebar.service";
+import {UserEditingFormComponent} from "../users-options/user-editing-form/user-editing-form.component";
 
 @Component({
   selector: 'app-table-users',
@@ -26,6 +28,7 @@ export class TableUsersComponent {
   constructor(
     private userService: UserService,
     private toastService: ToasterService,
+    protected sidebarService: SidebarService,
   ) {
   }
 
@@ -48,5 +51,25 @@ export class TableUsersComponent {
         },
         () => this.toastService.error('Oops', 'Une erreur est survenue lors de la récupération des données'),
       );
+    /*
+    editUser(user: User): void {
+      this.sidebarService
+        .open({
+          title: `Editer une nouvelle offre d'emploi`,
+          input: {job},
+          component: JobPostingFormComponent,
+          width: 650
+        });
+    }*/
+  }
+
+  editUser(user: User) : void{
+    this.sidebarService
+      .open({
+        title: `Modifier un utilisateur`,
+        input: {user},
+        component: UserEditingFormComponent,
+        width: 650
+      });
   }
 }
