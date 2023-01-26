@@ -117,7 +117,7 @@ public class UserController {
     @GetMapping(GET_NB_OF_USERS)
     public ResponseEntity<Integer> getNbOfUsers(){
         List<UserDto> users = userService.getNbOfUsers();
-        return ResponseEntity.ok(users.size()) ;
+     return ResponseEntity.ok(users.size()) ;
     }
 
     @GetMapping(GET_USER_NAMES_URI)
@@ -130,4 +130,9 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserByUsername(username));
     }
 
+    @DeleteMapping(value = DELETE_USER)
+    public ResponseEntity deleteUser(@PathVariable("userId") final Long userId) {
+        // userService.deleteUser(userId);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -15,6 +15,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import {BoardModule} from './board/board.module';
 import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import {DialogService} from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import localeFr from '@angular/common/locales/fr';
     BoardModule,
     HttpClientXsrfModule
   ],
-  providers: [MessageService, {provide: LOCALE_ID, useValue: 'fr'}],
+  providers: [MessageService, {provide: LOCALE_ID, useValue: 'fr'},DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

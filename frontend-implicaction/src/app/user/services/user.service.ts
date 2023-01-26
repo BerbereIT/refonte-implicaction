@@ -84,4 +84,9 @@ export class UserService {
   getUserByUsername(userName: string): Observable<User> {
     return this.http.get<User>(this.apiEndpointsService.getUserByUsername(userName))
   }
+
+  deleteUser(userId: string):Observable<any>{
+    console.log("detellee interier " + JSON.stringify(userId) )
+    return this.http.delete(this.apiEndpointsService.deleteUser(userId))
+  }
 }

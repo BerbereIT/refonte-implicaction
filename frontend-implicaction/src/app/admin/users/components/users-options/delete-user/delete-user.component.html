@@ -1,0 +1,13 @@
+ <div class="modal-header">
+</div>
+
+<div class="modal-body">
+<p *ngIf = "title" > 
+<span class="text-danger"> {{title}}</span>    
+</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-outline-secondary" (click)="close()" > {{annuler}}</button>
+<button type="button" class="btn btn-danger" (click)="delete()" >{{valider}}</button>
+</div> 
+

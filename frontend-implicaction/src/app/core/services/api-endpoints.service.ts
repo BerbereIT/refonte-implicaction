@@ -159,6 +159,10 @@ export class ApiEndpointsService {
   getNbOfUsers():any{
     return ApiEndpointsService.createUrl(Uris.USERS.GET_NB_OF_USERS)
   }
+  deleteUser(userId: string):any{
+    console.log("Url  ==>>"+ ApiEndpointsService.createUrlWithPathVariables(Uris.USERS.BASE_URI,[userId]));
+    return ApiEndpointsService.createUrlWithPathVariables(Uris.USERS.BASE_URI,[userId])
+  }
   /**
    * Experiences
    */

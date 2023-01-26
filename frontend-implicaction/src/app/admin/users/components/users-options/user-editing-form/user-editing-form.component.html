@@ -1,0 +1,292 @@
+        <form
+          (ngSubmit)="onSubmit()"
+          [formGroup]="formUser"
+        >
+          <div class="d-flex align-items-center justify-content-center mb-4 img-container">
+            <div class="card-options">
+              <ng-container *ngIf="!readOnly">
+                <i-feather
+                  class="cursor-pointer"
+                  name="edit-2"
+                >
+                </i-feather>
+                <ng-template #rollbackAndSaveIcon>
+                  <i-feather
+                    class="cursor-pointer danger-on-hover me-2"
+                    name="rotate-ccw"
+                  >
+                  </i-feather>
+                  <i-feather
+                    class="cursor-pointer success-on-hover"
+                    name="save"
+                  >
+                  </i-feather>
+                </ng-template>
+              </ng-container>
+            </div>
+            <label >
+              <img
+                #userImage
+                (error)="userImage.src = constant.USER_IMAGE_DEFAULT_URI"
+                [src]="user.imageUrl || constant.USER_IMAGE_DEFAULT_URI"
+                alt="photo de {{user.firstname}}"
+                class="rounded-circle shadow-sm"
+              >
+              <ng-container >
+                <div class="hover-text">Modifier</div>
+                <div class="background"></div>
+              </ng-container>
+            </label>
+            <br>
+            <input
+              (change)="onFileChange($event)"
+              accept=".jpg, .png, .jpeg"
+              id="fileInput"
+              type="file"
+            >
+          </div>
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{'ng-invalid ng-touched': (isSubmitted || formUser.controls['lastname'].touched) && formUser.controls['lastname'].errors}"
+              class="form-control form-control-lg px-4"
+              formControlName="lastname"
+              id="lastnameInput"
+              placeholder="lastname"
+            />
+            <label
+              class="form-label px-4"
+              for="lastnameInput"
+            >
+              Nom de famille
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['lastname'].touched) && formUser.controls['lastname'].errors"
+              class="text-danger"
+            >
+              Vous devez fournir un intitulé d'offre.
+            </div>
+          </div>
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{'ng-invalid ng-touched': (isSubmitted || formUser.controls['firstname'].touched) && formUser.controls['firstname'].errors}"
+              class="form-control form-control-lg px-4"
+              formControlName="firstname"
+              id="firstnameInput"
+              placeholder="firstname"
+            />
+            <label
+              class="form-label px-4"
+              for="firstnameInput"
+            >
+              Prénom
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['firstname'].touched) && formUser.controls['firstname'].errors"
+              class="text-danger"
+            >
+              Vous devez fournir le prénom a cette personne.
+            </div>
+          </div>
+
+            <div class="form-floating mb-4">
+              <input
+                [ngClass]="{
+        'ng-invalid ng-touched': (isSubmitted || formUser.controls['email'].touched) && formUser.controls['email'].errors
+        }"
+                class="form-control form-control-lg px-4"
+                formControlName="email"
+                id="emailInput"
+                placeholder="email"
+              />
+              <label
+                class="form-label px-4"
+                for="emailInput"
+              >
+                E-mail
+              </label>
+              <div
+                *ngIf="(isSubmitted || formUser.controls['email'].touched) && formUser.controls['email'].errors"
+                class="text-danger"
+              >
+                Vous devez fournir l'E-mail
+              </div>
+            </div>
+
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{
+        'ng-invalid ng-touched': (isSubmitted || formUser.controls['phoneNumber'].touched) && formUser.controls['phoneNumber'].errors
+        }"
+              class="form-control form-control-lg px-4"
+              formControlName="phoneNumber"
+              id="phoneNumberInput"
+              placeholder="phoneNumber"
+            />
+            <label
+              class="form-label px-4"
+              for="phoneNumberInput"
+            >
+              Numéro de téléphone
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['phoneNumber'].touched) && formUser.controls['phoneNumber'].errors"
+              class="text-danger"
+            >
+              Vous devez fournir votre numéro de téléphone.
+            </div>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{
+        'ng-invalid ng-touched': (isSubmitted || formUser.controls['birthday'].touched) && formUser.controls['birthday'].errors
+        }"
+              class="form-control form-control-lg px-4"
+              formControlName="birthday"
+              id="birthdayInput"
+              placeholder="birthday"
+              type = "date"
+            />
+            <label
+              class="form-label px-4"
+              for="birthdayInput"
+            >
+              Date de naissance
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['birthday'].touched) && formUser.controls['birthday'].errors"
+              class="text-danger"
+            >
+              Vous devez fournir votre date de naissance.
+            </div>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{
+        'ng-invalid ng-touched': (isSubmitted || formUser.controls['presentation'].touched) && formUser.controls['presentation'].errors
+        }"
+              class="form-control form-control-lg px-4"
+              formControlName="presentation"
+              id="presentationInput"
+              placeholder="presentation"
+            />
+            <label
+              class="form-label px-4"
+              for="presentationInput"
+            >
+              Présentation
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['presentation'].touched) && formUser.controls['presentation'].errors"
+              class="text-danger"
+            >
+              Vous devez modifier votre présentation.
+            </div>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{
+        'ng-invalid ng-touched': (isSubmitted || formUser.controls['hobbies'].touched) && formUser.controls['hobbies'].errors
+        }"
+              class="form-control form-control-lg px-4"
+              formControlName="hobbies"
+              id="hobbiesInput"
+              placeholder="hobbies"
+            />
+            <label
+              class="form-label px-4"
+              for="hobbiesInput"
+            >
+              Loisirs / Hobbies
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['hobbies'].touched) && formUser.controls['hobbies'].errors"
+              class="text-danger"
+            >
+              Vous devez modifier vos hobbies.
+            </div>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{
+        'ng-invalid ng-touched': (isSubmitted || formUser.controls['purpose'].touched) && formUser.controls['purpose'].errors
+        }"
+              class="form-control form-control-lg px-4"
+              formControlName="purpose"
+              id="purposeInput"
+              placeholder="purpose"
+            />
+            <label
+              class="form-label px-4"
+              for="purposeInput"
+            >
+              Objectif professionnel
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['purpose'].touched) && formUser.controls['purpose'].errors"
+              class="text-danger"
+            >
+              Vous devez modifier votre objectif professionnel.
+            </div>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{
+        'ng-invalid ng-touched': (isSubmitted || formUser.controls['expectation'].touched) && formUser.controls['expectation'].errors
+        }"
+              class="form-control form-control-lg px-4"
+              formControlName="expectation"
+              id="expectationInput"
+              placeholder="expectation"
+            />
+            <label
+              class="form-label px-4"
+              for="expectationInput"
+            >
+             Attentes du réseau
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['expectation'].touched) && formUser.controls['expectation'].errors"
+              class="text-danger"
+            >
+              Vous devez modifier vos attentes.
+            </div>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input
+              [ngClass]="{
+        'ng-invalid ng-touched': (isSubmitted || formUser.controls['contribution'].touched) && formUser.controls['contribution'].errors
+        }"
+              class="form-control form-control-lg px-4"
+              formControlName="contribution"
+              id="contributionInput"
+              placeholder="contribution"
+            />
+            <label
+              class="form-label px-4"
+              for="contributionInput"
+            >
+              Contribution au réseau
+            </label>
+            <div
+              *ngIf="(isSubmitted || formUser.controls['contribution'].touched) && formUser.controls['contribution'].errors"
+              class="text-danger"
+            >
+              Vous devez modifier ce que vous voulez apporter au réseau.
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center sidebar-options">
+            <button
+              class="btn btn-primary w-50"
+              type="submit"
+            >
+              Modifier
+            </button>
+          </div>
+        </form>

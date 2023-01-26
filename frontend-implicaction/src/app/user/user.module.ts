@@ -31,7 +31,8 @@ import {SkeletonModule} from 'primeng/skeleton';
         TrainingFormComponent,
     ],
     exports: [
-        UserCardComponent
+        UserCardComponent,
+        UserInfoComponent
     ],
     imports: [
         CommonModule,

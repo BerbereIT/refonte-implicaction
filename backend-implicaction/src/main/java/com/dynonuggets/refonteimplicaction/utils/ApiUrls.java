@@ -65,6 +65,7 @@ public class ApiUrls {
 
     public static final String GET_USER_BY_NAME_URI = "/by-username/{username}";
 
+    public static final String DELETE_USER = "/{userId}";
     // FILES
     public static final String FILE_BASE_URI = "/api/files";
     public static final String GET_FILE_BY_KEY = "/{objectKey}";
